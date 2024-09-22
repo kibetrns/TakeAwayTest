@@ -1,0 +1,5 @@
+.fleet
+.venv
+.env
+External Libraries/
+**/__pycache__/
