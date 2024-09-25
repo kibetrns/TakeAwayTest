@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 from contextlib import asynccontextmanager
 from app.api.v1.routes import customer_routes, order_routes
-from app.api.core.config import settings, logger  # Import logger
+from app.api.core.config import settings, logger
 from app.api.core.database import initialize_database
 
 @asynccontextmanager

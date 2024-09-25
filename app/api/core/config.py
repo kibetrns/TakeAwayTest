@@ -4,6 +4,8 @@ import logging
 class Settings(BaseSettings):
     mongodb_url: str
     mongodb_db: str
+    africastalking_username: str
+    africastalking_api_key: str
 
     class Config:
         env_file = ".env"
