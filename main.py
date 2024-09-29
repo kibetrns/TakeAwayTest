@@ -42,4 +42,7 @@ app.include_router(order_routes.router, prefix="/api/v1")
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to the Customer Order API"}
+    return {
+        "message": "Welcome to the Customer Order API",
+        "explore": "Navigate to {root_url}/docs#/ to explore the API documentation"
+    }
