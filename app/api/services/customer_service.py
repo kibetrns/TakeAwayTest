@@ -35,19 +35,16 @@ class CustomerService:
             logger.error(f"Invalid ObjectId provided: {customer_id}")
             raise HTTPException(status_code=400, detail="Provide a valid ObjectId. The one you've provided is NOT valid.")
 
-        try:
-            customer = await self.db.customers.find_one({"_id": obj_id})
-            if customer is None:
-                logger.warning(f"Customer with ID {customer_id} not found.")
-                raise HTTPException(status_code=404, detail="Customer NOT found.")
+        customer = await self.db.customers.find_one({"_id": obj_id})
 
-            customer["_id"] = str(customer["_id"])
-            logger.info(f"Customer fetched successfully: {customer}")
-            return CustomerInDB(**customer)
+        if customer is None:
+            logger.warning(f"Customer with ID {customer_id} not found.")
+            raise HTTPException(status_code=404, detail="Customer NOT found.")
 
-        except Exception as e:
-            logger.error(f"Error occurred while fetching customer: {str(e)}")
-            raise HTTPException(status_code=500, detail="An unexpected error occurred: " + str(e))
+        customer["_id"] = str(customer["_id"])
+        logger.info(f"Customer fetched successfully: {customer}")
+        return CustomerInDB(**customer)
+
 
     async def update_customer(self, customer_id: str, update_data: CustomerUpdate):
         try:
@@ -124,4 +121,3 @@ class CustomerService:
         except Exception as e:
             logger.error(f"Error occurred while deleting customer: {str(e)}")
             raise HTTPException(status_code=500, detail="An unexpected error occurred: " + str(e))
-

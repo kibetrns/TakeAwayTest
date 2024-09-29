@@ -45,10 +45,10 @@ class OrderService:
                 f"Thank you for your order. We appreciate your business!"
             )
 
-            self.sms_service.send_sms(customer.phone_numer, message)
+            self.sms_service.send_sms(customer.phone_number, message)
 
             order_data_dict['_id'] = str(order_id)
-            order_data_dict['customer_id'] = str(order_data_dict['customer_id'])  # Convert ObjectId to string
+            order_data_dict['customer_id'] = str(order_data_dict['customer_id']) 
 
             return OrderInDB(**order_data_dict)
         except Exception as e:
