@@ -6,6 +6,12 @@ class Settings(BaseSettings):
     mongodb_db: str
     africastalking_username: str
     africastalking_api_key: str
+    docker_username: str
+    docker_password:str
+    docker_registry:str
+    docker_access_token:str
+    on_render_api_key: str
+    on_render_service_id: str
 
     class Config:
         env_file = ".env"
