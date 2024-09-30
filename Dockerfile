@@ -33,4 +33,4 @@ ENV PORT=${PORT}
 # ENV AUTH0_AUDIENCE=${AUTH0_AUDIENCE}
 
 EXPOSE ${POR
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "${PORT}"]
+CMD ["uvicorn", "main:app", "--host", "127.0.0.1", "--port", "${PORT}"]
