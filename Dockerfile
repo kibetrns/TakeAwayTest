@@ -32,5 +32,5 @@ ENV PORT=${PORT}
 # ENV APP_SECRET_KEY=${APP_SECRET_KEY}
 # ENV AUTH0_AUDIENCE=${AUTH0_AUDIENCE}
 
-EXPOSE ${POR
-CMD ["uvicorn", "main:app", "--host", "127.0.0.1", "--port", "${PORT}"]
+EXPOSE ${PORT}
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port $PORT"]

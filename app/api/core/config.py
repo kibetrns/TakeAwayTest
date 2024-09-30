@@ -12,6 +12,8 @@ class Settings(BaseSettings):
     docker_access_token:str
     on_render_api_key: str
     on_render_service_id: str
+    port: str
+
 
     class Config:
         env_file = ".env"
