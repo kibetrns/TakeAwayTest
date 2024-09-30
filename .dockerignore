@@ -1,0 +1,11 @@
+.venv/
+.env
+.fleet/
+**/__pycache__/
+External Libraries/
+*.py[cod]
+*.log
+.git
+.dockerignore
+build/
+dist/
